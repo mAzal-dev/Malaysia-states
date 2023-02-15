@@ -1,3 +1,3 @@
-function myfunction(){
+function searchState(){
     alert('hi');
 }
