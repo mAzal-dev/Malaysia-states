@@ -6,11 +6,20 @@ const myAPIUrl = "https://localhost:7249/api/getstate";
 function searchState(){
     fetch(myAPIUrl)
         .then((response) => {
-            return response.json();
+            if(response.status == 200){
+                console.log(response.status);
+                return response.json();
+            }
+            else if(response.status == 500){
+                console.log(response.status);
+                alert("Oh no API Down!");
+            }
+                
         })
         .then((data) => {
             let states = data;
             console.log(states);
+            console.log(states.data);
             length=data.data.length
             var temp="";
             for(i=0;i<length;i++){
